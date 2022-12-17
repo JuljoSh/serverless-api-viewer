@@ -36,6 +36,7 @@ function App() {
   return (
     <div>
       <form>
+    <h1>MEGA GANGO</h1>
         <label>
           Search:
           <input type="text" value={query} onChange={handleChange} />
