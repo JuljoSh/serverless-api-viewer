@@ -36,6 +36,7 @@ function App() {
   return (
     <div className="App">
       <div className="form">
+    <h1>Website GANGOSH</h1>
         <input id="query" type="text" onChange={updateQuery} placeholder="Search query" />
         <button onClick={search}>Search</button>
       </div>
