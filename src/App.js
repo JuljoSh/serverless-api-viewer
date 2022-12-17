@@ -1,9 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 
-const ACCESS_KEY = '2NlASwtkygJ8s5FmT-mEjzhldJgZh61Yr0I726I2Ohk';
+const ACCESS_KEY = '563492ad6f917000010000016317442ff2d442cd903a6beee3202204';
 
-function App() {
+function ImageSearch() {
   const [query, setQuery] = useState('');
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
@@ -14,10 +14,15 @@ function App() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://api.unsplash.com/search/photos?query=${query}&client_id=${ACCESS_KEY}`
+          `https://api.pexels.com/v1/search?query=${query}&per_page=20`,
+          {
+            headers: {
+              Authorization: `Bearer ${ACCESS_KEY}`
+            }
+          }
         );
         const data = await response.json();
-        setImages(data.results);
+        setImages(data.photos);
       } catch (error) {
         setError(error);
       }
@@ -36,7 +41,6 @@ function App() {
   return (
     <div>
       <form>
-    <h1>MEGA GANGO</h1>
         <label>
           Search:
           <input type="text" value={query} onChange={handleChange} />
@@ -49,12 +53,16 @@ function App() {
       ) : (
         <div>
           {images.map(image => (
-            <img src={image.urls.small} alt={image.alt_description} key={image.id} />
+            <img src={image.src.small} alt={image.alt_description} key={image.id} />
           ))}
         </div>
       )}
     </div>
   );
+}
+
+function App() {
+  return <ImageSearch />;
 }
 
 export default App;
