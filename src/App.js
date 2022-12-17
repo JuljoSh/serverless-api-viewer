@@ -14,7 +14,7 @@ function ImageSearch() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://api.pexels.com/v1/search?query=${query}&per_page=20`,
+          `https://api.pexels.com/v1/search?query=${query}&per_page=50`,
           {
             headers: {
               Authorization: `Bearer ${ACCESS_KEY}`
