@@ -41,7 +41,7 @@ function ImageSearch() {
   return (
     <div>
       <form>
-    <h1>PIDH ME LESH PIDH PA LESH</h1>
+    <h1>test</h1>
         <label>
           Search:
           <input type="text" value={query} onChange={handleChange} />
